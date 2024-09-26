@@ -1,0 +1,49 @@
+{
+  "campaigns": [
+    {
+      "id": 1,
+      "title": "Promoção de Inverno",
+      "dataCreation": "2024-09-25T10:30:00Z",
+      "beginCampaign": "2024-10-01T00:00:00Z",
+      "endCampaign": "2024-12-01T23:59:59Z",
+      "status": "ativa",
+      "category": 1
+    },
+    {
+      "id": 2,
+      "title": "Black Friday",
+      "dataCreation": "2024-09-15T14:45:00Z",
+      "beginCampaign": "2024-11-25T00:00:00Z",
+      "endCampaign": "2024-11-29T23:59:59Z",
+      "status": "ativa",
+      "category": 2
+    },
+    {
+      "id": 3,
+      "title": "Fim de Estoque",
+      "dataCreation": "2024-07-01T09:00:00Z",
+      "beginCampaign": "2024-07-05T00:00:00Z",
+      "endCampaign": "2024-08-01T23:59:59Z",
+      "status": "expirada",
+      "category": 3
+    },
+    {
+      "id": 4,
+      "title": "Promoção de Primavera",
+      "dataCreation": "2024-09-20T11:00:00Z",
+      "beginCampaign": "2024-09-22T00:00:00Z",
+      "endCampaign": "2024-10-15T23:59:59Z",
+      "status": "pausada",
+      "category": 4
+    }
+  ],
+  "categories": [
+    { "id": 1, "name": "Vestuário" },
+    { "id": 2, "name": "Eletrônicos" },
+    { "id": 3, "name": "Móveis" },
+    { "id": 4, "name": "Jardinagem" },
+    { "id": 5, "name": "Alimentos" },
+    { "id": 6, "name": "Beleza" },
+    { "id": 7, "name": "Automóveis" }
+  ]
+}
