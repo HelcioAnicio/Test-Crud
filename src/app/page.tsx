@@ -6,7 +6,7 @@ import { CirclePlus, Maximize2, Pencil, Trash2 } from "lucide-react";
 import { ModalAdd } from "@/components/modalAdd/modalAdd";
 
 interface Campaign {
-  id: number;
+  id?: number;
   title: string;
   dataCreation: string;
   beginCampaign: string;
@@ -14,12 +14,17 @@ interface Campaign {
   status: string;
   category: string;
 }
+interface Category {
+  id: number;
+  category: string;
+}
 
 export default function Home() {
   const [campaigns, setCampaigns] = useState<Campaign[]>([]);
+  const [categories, setCategories] = useState<Category[]>([]);
   const [modalStatus, setModalStatus] = useState<boolean>(false);
 
-  useEffect(() => {
+  const requestApi = () => {
     axios
       .get("http://localhost:3000/campaigns")
       .then((response: AxiosResponse<Campaign[]>) => {
@@ -29,6 +34,20 @@ export default function Home() {
       .catch((error: unknown) => {
         console.error(error);
       });
+
+    axios
+      .get("http://localhost:3000/categories")
+      .then((response: AxiosResponse<Category[]>) => {
+        console.log(response.data);
+        setCategories(response.data);
+      })
+      .catch((error: unknown) => {
+        console.error(error);
+      });
+  };
+
+  useEffect(() => {
+    requestApi();
   }, []);
 
   const handleShowModal = (): void => {
@@ -39,9 +58,20 @@ export default function Home() {
     setModalStatus(false);
   };
 
+  const handleAddCampaign = (newCampaign: Campaign) => {
+    setCampaigns([...campaigns, newCampaign]);
+  };
+
   return (
     <main>
-      {modalStatus && <ModalAdd closeModal={handleCloseModal} />}
+      {modalStatus && (
+        <ModalAdd
+          closeModal={handleCloseModal}
+          categories={categories}
+          addCampaign={handleAddCampaign}
+          campaigns={campaigns}
+        />
+      )}
       <section className="mt-4">
         <button
           onClick={handleShowModal}

@@ -35,15 +35,54 @@
       "endCampaign": "2024-10-15T23:59:59Z",
       "status": "pausada",
       "category": 4
+    },
+    {
+      "id": 5,
+      "title": "Campanha de Verão ",
+      "dataCretion": "2024-09-27T00:22:35.051Z",
+      "beginCampaign": "2024-09-28",
+      "endCampaign": "2024-10-11",
+      "status": "ativa",
+      "category": "2"
+    },
+    {
+      "id": 6,
+      "title": "Campanha Marçal para prefeito",
+      "dataCretion": "2024-09-27T01:27:20.141Z",
+      "beginCampaign": "2024-10-04",
+      "endCampaign": "2024-11-04",
+      "status": "ativa",
+      "category": "2"
     }
   ],
   "categories": [
-    { "id": 1, "name": "Vestuário" },
-    { "id": 2, "name": "Eletrônicos" },
-    { "id": 3, "name": "Móveis" },
-    { "id": 4, "name": "Jardinagem" },
-    { "id": 5, "name": "Alimentos" },
-    { "id": 6, "name": "Beleza" },
-    { "id": 7, "name": "Automóveis" }
+    {
+      "id": 1,
+      "category": "Vestuário"
+    },
+    {
+      "id": 2,
+      "category": "Eletrônicos"
+    },
+    {
+      "id": 3,
+      "category": "Móveis"
+    },
+    {
+      "id": 4,
+      "category": "Jardinagem"
+    },
+    {
+      "id": 5,
+      "category": "Alimentos"
+    },
+    {
+      "id": 6,
+      "category": "Beleza"
+    },
+    {
+      "id": 7,
+      "category": "Automóveis"
+    }
   ]
 }
