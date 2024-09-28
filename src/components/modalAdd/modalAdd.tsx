@@ -12,7 +12,7 @@ interface ModalAddProps {
 }
 
 interface Campaign {
-  id?: number;
+  id: number;
   title: string;
   dataCreation: string;
   beginCampaign: string;
@@ -175,7 +175,7 @@ export const ModalAdd = ({
                   <option
                     className="text-black"
                     key={category.id}
-                    value={category.id}
+                    value={category.category}
                   >
                     {category.category}
                   </option>

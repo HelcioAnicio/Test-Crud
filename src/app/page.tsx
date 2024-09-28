@@ -6,7 +6,7 @@ import { CirclePlus, Maximize2, Pencil, Trash2 } from "lucide-react";
 import { ModalAdd } from "@/components/modalAdd/modalAdd";
 
 interface Campaign {
-  id?: number;
+  id: number;
   title: string;
   dataCreation: string;
   beginCampaign: string;
@@ -43,6 +43,18 @@ export default function Home() {
       })
       .catch((error: unknown) => {
         console.error(error);
+      });
+  };
+
+  const deleteCampaign = (id: number) => {
+    console.log(id);
+    axios
+      .delete(`http://localhost:3000/campaigns/${id}`)
+      .then(() => {
+        console.log(`Campanha com id ${id} foi deletada!`);
+      })
+      .catch((error: unknown) => {
+        console.error("Erro ao deletar a campanha", error);
       });
   };
 
@@ -105,7 +117,15 @@ export default function Home() {
                     <Pencil size={15} />
                   </button>
                   <button>
-                    <Trash2 size={15} color="red" />
+                    <Trash2
+                      size={15}
+                      color="red"
+                      // {const id: number | undefined = campaign.id
+                      //   if (id >== 0) {
+                      //   }
+                      // }
+                      onClick={() => deleteCampaign(campaign.id)}
+                    />
                   </button>
                 </td>
               </tr>
