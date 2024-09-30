@@ -116,7 +116,7 @@ export default function Home() {
   }
 
   return (
-    <div className="h-screen">
+    <div className="mx-auto h-screen w-full lg:max-w-5xl">
       {modalAddStatus && (
         <ModalAdd
           closeModal={handleCloseModalAdd}

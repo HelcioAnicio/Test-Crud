@@ -125,14 +125,14 @@ export const ModalAdd = ({
 
   return (
     <div
-      className="fixed bottom-0 flex h-full w-full flex-col bg-black bg-opacity-85"
+      className="fixed left-0 top-0 flex h-full w-full flex-col bg-black bg-opacity-85"
       onClick={closeModal}
     >
       <div
-        className="absolute bottom-0 z-20 flex h-5/6 w-full flex-col rounded-t-3xl bg-gray-800"
+        className="absolute bottom-0 z-20 flex h-5/6 w-full flex-col rounded-t-3xl bg-gray-800 sm:left-1/2 sm:top-1/2 sm:h-max sm:max-w-2xl sm:-translate-x-1/2 sm:-translate-y-1/2 sm:rounded-none sm:pt-4"
         onClick={(event) => event.stopPropagation()}
       >
-        <div className="flex w-full justify-center">
+        <div className="flex w-full justify-center sm:hidden">
           <Minus size={50} />
         </div>
         <form

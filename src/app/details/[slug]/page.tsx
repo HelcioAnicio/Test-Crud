@@ -39,7 +39,7 @@ export default function Details({ params }: { params: { slug: string } }) {
   }
 
   return (
-    <div className="flex flex-col gap-10 p-6 pb-12">
+    <div className="mx-auto flex w-full flex-col gap-10 p-6 pb-12 lg:max-w-5xl">
       <div>
         <button
           onClick={() => window.history.back()}
