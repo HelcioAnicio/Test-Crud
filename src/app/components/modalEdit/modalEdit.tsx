@@ -4,11 +4,10 @@ import axios from "axios";
 import { Minus } from "lucide-react";
 import React, { useState } from "react";
 
-interface ModalAddProps {
+interface ModalEditProps {
   closeModal: () => void;
   categories: { id: number; category: string }[];
-  addCampaign: (newCampaignData: Campaign) => void;
-  campaigns: Campaign[];
+  campaign: Campaign;
 }
 
 interface Campaign {
@@ -21,52 +20,35 @@ interface Campaign {
   category: string;
 }
 
-export const ModalAdd = ({
+export const ModalEdit = ({
   closeModal,
   categories,
-  addCampaign,
-  campaigns,
-}: ModalAddProps) => {
-  const getNextId = (): number => {
-    const maxId = campaigns.reduce(
-      (max: number, campaign: Campaign) =>
-        campaign.id && campaign.id > max ? campaign.id : max,
-      0,
-    );
-    return maxId + 1;
-  };
-
-  const [newCampaignData, setNewCampaignData] = useState<Campaign>({
-    id: getNextId(),
-    title: "",
-    dataCreation: new Date().toISOString(),
-    beginCampaign: "",
-    endCampaign: "",
-    status: "",
-    category: "",
+  campaign,
+}: ModalEditProps) => {
+  const [editCampaignData, setEditCampaignData] = useState<Campaign>({
+    id: campaign.id,
+    title: campaign.title,
+    dataCreation: campaign.dataCreation,
+    beginCampaign: campaign.beginCampaign,
+    endCampaign: campaign.endCampaign,
+    status: campaign.status,
+    category: campaign.category,
   });
 
   const sendForm = (event: React.FormEvent): void => {
     event.preventDefault();
-    console.log(newCampaignData);
+    console.log(editCampaignData);
     axios
-      .post("http://localhost:3000/campaigns", {
-        id: getNextId(),
-        title: newCampaignData.title,
-        dataCretion: new Date().toISOString(),
-        beginCampaign: newCampaignData.beginCampaign,
-        endCampaign: newCampaignData.endCampaign,
-        status: newCampaignData.status,
-        category: newCampaignData.category,
+      .patch(
+        `http://localhost:3000/campaigns/${editCampaignData.id}`,
+        editCampaignData,
+      )
+      .then((response) => {
+        console.log("Campanha editada com sucesso", response);
       })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.error(error);
+      .catch((error) => {
+        console.error("Erro ao editar a campanha", error);
       });
-
-    addCampaign(newCampaignData);
     closeModal();
   };
 
@@ -75,7 +57,7 @@ export const ModalAdd = ({
   ) => {
     const { name, value } = event.target;
 
-    setNewCampaignData((prevData) => ({
+    setEditCampaignData((prevData) => ({
       ...prevData,
       [name]: value,
     }));
@@ -100,48 +82,56 @@ export const ModalAdd = ({
             className="flex h-full flex-col gap-5 px-4 pb-8"
           >
             <div className="gap2 flex flex-col">
-              <label htmlFor="title">Título</label>
+              <label className="text-gray-400" htmlFor="title">
+                Título:
+              </label>
               <input
-                className="w-56 rounded-md border bg-transparent px-2 py-1 placeholder:text-gray-500"
+                className="w-56 border-b-2 bg-transparent px-2 py-1 text-sm outline-none"
                 type="text"
                 id="title"
                 name="title"
-                value={newCampaignData.title}
+                value={editCampaignData.title}
                 onChange={handleChangeValue}
               />
             </div>
 
             <div className="gap2 flex flex-col">
-              <label htmlFor="beginCampaign">Data de Início</label>
+              <label className="text-gray-400" htmlFor="beginCampaign">
+                Data de Início:
+              </label>
               <input
-                className="w-56 rounded-md border bg-transparent px-2 py-1 placeholder:text-gray-500"
+                className="w-56 border-b-2 bg-transparent px-2 py-1 text-sm outline-none"
                 type="date"
                 id="beginCampaign"
                 name="beginCampaign"
-                value={newCampaignData.beginCampaign}
+                value={editCampaignData.beginCampaign}
                 onChange={handleChangeValue}
               />
             </div>
 
             <div className="gap2 flex flex-col">
-              <label htmlFor="endCampaign">Data de Fim</label>
+              <label className="text-gray-400" htmlFor="endCampaign">
+                Data de Fim:
+              </label>
               <input
-                className="w-56 rounded-md border bg-transparent px-2 py-1 placeholder:text-gray-500"
+                className="w-56 border-b-2 bg-transparent px-2 py-1 text-sm outline-none"
                 type="date"
                 id="endCampaign"
                 name="endCampaign"
-                value={newCampaignData.endCampaign}
+                value={editCampaignData.endCampaign}
                 onChange={handleChangeValue}
               />
             </div>
 
             <div className="gap2 flex flex-col">
-              <label htmlFor="status">Status</label>
+              <label className="text-gray-400" htmlFor="status">
+                Status:
+              </label>
               <select
-                className="w-56 rounded-md border bg-transparent px-2 py-1"
+                className="w-56 border-b-2 bg-transparent px-2 py-1 text-sm outline-none"
                 id="status"
                 name="status"
-                value={newCampaignData.status}
+                value={editCampaignData.status}
                 onChange={handleChangeValue}
               >
                 <option className="text-black" value="" disabled>
@@ -150,22 +140,24 @@ export const ModalAdd = ({
                 <option className="text-black" value="ativa">
                   Ativa
                 </option>
-                {/* <option className="text-black" value="pausada">
+                <option className="text-black" value="pausada">
                   Pausada
                 </option>
                 <option className="text-black" value="expirada">
                   Expirada
-                </option> */}
+                </option>
               </select>
             </div>
 
             <div className="gap2 flex flex-col">
-              <label htmlFor="category">Categoria</label>
+              <label className="text-gray-400" htmlFor="category">
+                Categoria:
+              </label>
               <select
-                className="w-56 rounded-md border bg-transparent px-2 py-1"
+                className="w-56 border-b-2 bg-transparent px-2 py-1 text-sm outline-none"
                 id="category"
                 name="category"
-                value={newCampaignData.category}
+                value={editCampaignData.category}
                 onChange={handleChangeValue}
               >
                 <option disabled className="text-black" value="">
@@ -186,15 +178,15 @@ export const ModalAdd = ({
             <div className="mt-5 flex justify-between">
               <button
                 type="submit"
-                className="w-28 rounded-md border bg-red-400 p-2"
+                className="bg-wrong w-28 rounded-md border p-2"
                 onChange={closeModal}
               >
                 Cancelar
               </button>
               <button
                 type="submit"
+                className="bg-green w-28 rounded-md border p-2"
                 onClick={sendForm}
-                className="w-28 rounded-md border bg-green-400 p-2"
               >
                 Enviar
               </button>

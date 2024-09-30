@@ -3,16 +3,24 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #001f3f;
+  --dark: #001225;
+  --light: #002f4b;
+  --foreground: #ededed;
+  --wrong: #d40b0b;
+  --green: #07840b;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #001f3f;
+    --dark: #001225;
+    --light: #002f4b;
     --foreground: #ededed;
+    --wrong: #d40b0b;
+    --green: 07840b;
   }
-}
+} */
 
 body {
   color: var(--foreground);

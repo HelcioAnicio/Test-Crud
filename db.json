@@ -3,38 +3,56 @@
     {
       "id": "1",
       "title": "Promoção de Inverno",
-      "dataCreation": "2024-09-25T10:30:00Z",
-      "beginCampaign": "2024-10-01T00:00:00Z",
-      "endCampaign": "2024-12-01T23:59:59Z",
+      "dataCreation": "2024-09-25",
+      "beginCampaign": "2024-10-01",
+      "endCampaign": "2024-12-01",
       "status": "ativa",
-      "category": "1"
+      "category": "Vestuário"
     },
     {
       "id": "2",
       "title": "Black Friday",
-      "dataCreation": "2024-09-15T14:45:00Z",
-      "beginCampaign": "2024-11-25T00:00:00Z",
-      "endCampaign": "2024-11-29T23:59:59Z",
+      "dataCreation": "2024-09-15",
+      "beginCampaign": "2024-11-25",
+      "endCampaign": "2024-11-29",
       "status": "ativa",
-      "category": "2"
+      "category": "Eletrônicos"
     },
     {
       "id": "3",
       "title": "Fim de Estoque",
-      "dataCreation": "2024-07-01T09:00:00Z",
-      "beginCampaign": "2024-07-05T00:00:00Z",
-      "endCampaign": "2024-08-01T23:59:59Z",
+      "dataCreation": "2024-07-01",
+      "beginCampaign": "2024-10-05",
+      "endCampaign": "2024-11-09",
       "status": "expirada",
-      "category": "3"
+      "category": "Jardinagem"
     },
     {
       "id": "4",
-      "title": "Promoção de Primavera",
-      "dataCreation": "2024-09-20T11:00:00Z",
-      "beginCampaign": "2024-09-22T00:00:00Z",
-      "endCampaign": "2024-10-15T23:59:59Z",
+      "title": "dffafa",
+      "dataCreation": "2024-09-30",
+      "beginCampaign": "2024-09-30",
+      "endCampaign": "2024-10-02",
+      "status": "ativa",
+      "category": "Eletrônicos"
+    },
+    {
+      "id": "5",
+      "title": "dasafa",
+      "dataCreation": "2024-09-30",
+      "beginCampaign": "2024-09-30",
+      "endCampaign": "2024-10-03",
       "status": "pausada",
-      "category": "4"
+      "category": "Móveis"
+    },
+    {
+      "id": "6",
+      "title": "fdmakldfjkd",
+      "dataCreation": "2024-09-30",
+      "beginCampaign": "2024-10-02",
+      "endCampaign": "2024-10-05",
+      "status": "pausada",
+      "category": "Eletrônicos"
     }
   ],
   "categories": [
