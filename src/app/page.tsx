@@ -38,7 +38,7 @@ export default function Home() {
 
   const requestApi = () => {
     axios
-      .get("http://localhost:3000/campaigns")
+      .get("https://json-server-wb8q.onrender.com/campaigns")
       .then((response: AxiosResponse<Campaign[]>) => {
         console.log(response.data);
         setCampaigns(response.data);
@@ -48,7 +48,7 @@ export default function Home() {
       });
 
     axios
-      .get("http://localhost:3000/categories")
+      .get("https://json-server-wb8q.onrender.com/categories")
       .then((response: AxiosResponse<Category[]>) => {
         console.log(response.data);
         setCategories(response.data);
@@ -61,7 +61,7 @@ export default function Home() {
   const deleteCampaign = (id: number) => {
     console.log(id);
     axios
-      .delete(`http://localhost:3000/campaigns/${id}`)
+      .delete(`https://json-server-wb8q.onrender.com/campaigns/${id}`)
       .then(() => {
         console.log(`Campanha com id ${id} foi deletada!`);
       })
@@ -135,11 +135,11 @@ export default function Home() {
       <section className="mt-10">
         <button
           onClick={handleShowModalAdd}
-          className="bg-green flex items-center gap-2 rounded-md px-2"
+          className="flex items-center gap-2 rounded-md bg-green px-2"
         >
           Adicionar campanha <CirclePlus size={15} />
         </button>
-        <table className="border-dark mt-2 w-full border-t-2 text-xs">
+        <table className="mt-2 w-full border-t-2 border-dark text-xs">
           <thead>
             <tr className="text-left">
               <th className="w-max px-1 py-5 text-xs">ID</th>

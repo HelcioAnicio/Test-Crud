@@ -24,7 +24,7 @@ export default function Details({ params }: { params: { slug: string } }) {
   useEffect(() => {
     if (id) {
       axios
-        .get(`http://localhost:3000/campaigns/${id}`)
+        .get(`https://json-server-wb8q.onrender.com/campaigns/${id}`)
         .then((response) => {
           setCampaignDetails(response.data);
         })

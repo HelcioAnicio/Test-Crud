@@ -97,7 +97,7 @@ export const ModalAdd = ({
     if (!validateDates()) return;
 
     axios
-      .post("http://localhost:3000/campaigns", {
+      .post("https://json-server-wb8q.onrender.com/campaigns", {
         ...newCampaignData,
         id: String(getNextId()),
         dataCreation: new Date().toISOString().split("T")[0],
@@ -233,14 +233,14 @@ export const ModalAdd = ({
           <div className="mt-5 flex justify-between">
             <button
               type="button"
-              className="bg-wrong w-28 rounded-md border p-2"
+              className="w-28 rounded-md border bg-wrong p-2"
               onClick={closeModal}
             >
               Cancelar
             </button>
             <button
               type="submit"
-              className="bg-green w-28 rounded-md border p-2"
+              className="w-28 rounded-md border bg-green p-2"
             >
               Enviar
             </button>

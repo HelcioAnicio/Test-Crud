@@ -40,7 +40,7 @@ export const ModalEdit = ({
     console.log(editCampaignData);
     axios
       .patch(
-        `http://localhost:3000/campaigns/${editCampaignData.id}`,
+        `https://json-server-wb8q.onrender.com/campaigns/${editCampaignData.id}`,
         editCampaignData,
       )
       .then((response) => {
@@ -178,14 +178,14 @@ export const ModalEdit = ({
             <div className="mt-5 flex justify-between">
               <button
                 type="submit"
-                className="bg-wrong w-28 rounded-md border p-2"
+                className="w-28 rounded-md border bg-wrong p-2"
                 onChange={closeModal}
               >
                 Cancelar
               </button>
               <button
                 type="submit"
-                className="bg-green w-28 rounded-md border p-2"
+                className="w-28 rounded-md border bg-green p-2"
                 onClick={sendForm}
               >
                 Enviar
